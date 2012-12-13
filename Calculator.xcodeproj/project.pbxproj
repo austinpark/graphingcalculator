@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D91950CE167A96B200A2F608 /* GraphingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91950CD167A96B200A2F608 /* GraphingViewController.m */; };
 		D9C8348F16406A4C00DC3611 /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C8348E16406A4C00DC3611 /* CalculatorBrain.m */; };
+		D9D1916E167A581100B18DEF /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D1916D167A581100B18DEF /* AxesDrawer.m */; };
 		D9D72F041640452B000BB9BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D72F031640452B000BB9BE /* UIKit.framework */; };
 		D9D72F061640452B000BB9BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D72F051640452B000BB9BE /* Foundation.framework */; };
 		D9D72F081640452B000BB9BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D72F071640452B000BB9BE /* CoreGraphics.framework */; };
@@ -19,8 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D91950CC167A96B200A2F608 /* GraphingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphingViewController.h; sourceTree = "<group>"; };
+		D91950CD167A96B200A2F608 /* GraphingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphingViewController.m; sourceTree = "<group>"; };
 		D9C8348D16406A4C00DC3611 /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		D9C8348E16406A4C00DC3611 /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
+		D9D1916C167A581100B18DEF /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
+		D9D1916D167A581100B18DEF /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
 		D9D72EFF1640452B000BB9BE /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D72F031640452B000BB9BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9D72F051640452B000BB9BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,6 +86,8 @@
 		D9D72F091640452B000BB9BE /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				D9D1916C167A581100B18DEF /* AxesDrawer.h */,
+				D9D1916D167A581100B18DEF /* AxesDrawer.m */,
 				D9D72F121640452B000BB9BE /* CalculatorAppDelegate.h */,
 				D9D72F131640452B000BB9BE /* CalculatorAppDelegate.m */,
 				D9D72F151640452B000BB9BE /* MainStoryboard.storyboard */,
@@ -88,6 +96,8 @@
 				D9D72F181640452B000BB9BE /* CalculatorViewController.h */,
 				D9D72F191640452B000BB9BE /* CalculatorViewController.m */,
 				D9D72F0A1640452B000BB9BE /* Supporting Files */,
+				D91950CC167A96B200A2F608 /* GraphingViewController.h */,
+				D91950CD167A96B200A2F608 /* GraphingViewController.m */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -169,6 +179,8 @@
 				D9D72F141640452B000BB9BE /* CalculatorAppDelegate.m in Sources */,
 				D9D72F1A1640452B000BB9BE /* CalculatorViewController.m in Sources */,
 				D9C8348F16406A4C00DC3611 /* CalculatorBrain.m in Sources */,
+				D9D1916E167A581100B18DEF /* AxesDrawer.m in Sources */,
+				D91950CE167A96B200A2F608 /* GraphingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
