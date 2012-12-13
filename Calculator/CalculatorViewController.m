@@ -140,6 +140,8 @@
     
     self.display.text = @"π";
 }
+- (IBAction)displayGraph {
+}
 
 - (NSDictionary*) setVariableValues:(double) x usingA:(double) a usingB: (double) b {
     NSDictionary *variableValues = nil;
@@ -157,6 +159,7 @@
     
     return variableValues;
 }
+
 
 - (IBAction)Test1Entered {
     
