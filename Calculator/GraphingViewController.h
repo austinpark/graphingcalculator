@@ -10,4 +10,6 @@
 
 @interface GraphingViewController : UIViewController
 
+@property (nonatomic, copy)  NSMutableArray* programStack;
+
 @end

@@ -7,12 +7,30 @@
 //
 
 #import "GraphingViewController.h"
+#import "GraphView.h"
 
 @interface GraphingViewController()
+@property (weak, nonatomic) IBOutlet GraphView *graphView;
 
 @end
 
 @implementation GraphingViewController
+
+
+@synthesize graphView = _graphView;
+@synthesize programStack = _programStack;
+
+- (void) setProgramStack:(NSMutableArray*)stack {
+    if (_programStack == nil) {
+        _programStack = [[NSMutableArray alloc] init];
+    }
+    if (stack != _programStack) {
+        [_programStack removeAllObjects];
+        _programStack = [stack mutableCopy];
+    }
+    
+    [self.graphView setNeedsDisplay];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -23,4 +41,14 @@
 }
 */
 
+- (void)viewDidUnload {
+    [self setGraphView:nil];
+    [self setGraphView:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES; // support all orientations
+}
 @end

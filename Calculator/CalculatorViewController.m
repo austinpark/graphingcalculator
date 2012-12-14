@@ -8,6 +8,7 @@
 
 #import "CalculatorViewController.h"
 #import "CalculatorBrain.h"
+#import "GraphingViewController.h"
 
 @interface CalculatorViewController()
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
@@ -140,8 +141,6 @@
     
     self.display.text = @"π";
 }
-- (IBAction)displayGraph {
-}
 
 - (NSDictionary*) setVariableValues:(double) x usingA:(double) a usingB: (double) b {
     NSDictionary *variableValues = nil;
@@ -160,27 +159,18 @@
     return variableValues;
 }
 
-
-- (IBAction)Test1Entered {
-    
-    double result = [CalculatorBrain runProgram:[self.brain program] usingVariableValues:[self setVariableValues:1 usingA:0 usingB:0]];
-    
-    self.display.text = [NSString stringWithFormat:@"%g", result];
-    self.variableDisplay.text = @"x = 1";
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [segue.destinationViewController setProgramStack:[self.brain program]];
 }
-- (IBAction)Test2Pressed {
-    double result = [CalculatorBrain runProgram:[self.brain program] usingVariableValues:[self setVariableValues:2 usingA:5 usingB:0]];
-    
-    self.display.text = [NSString stringWithFormat:@"%g", result];
-    self.variableDisplay.text = @"x = 2, a = 5";
 
+- (void)setAndShowGraph
+{
+    [self performSegueWithIdentifier:@"graphProgram" sender:self];
 }
-- (IBAction)Test3Pressed {
-    double result = [CalculatorBrain runProgram:[self.brain program] usingVariableValues:[self setVariableValues:10 usingA:-1 usingB:4]];
-    
-    self.display.text = [NSString stringWithFormat:@"%g", result];
-    self.variableDisplay.text = @"x = 10, a = -1, b = 4";
+
+- (IBAction)displayGraph {
+    [self setAndShowGraph];
 }
 
 - (void)viewDidUnload {
