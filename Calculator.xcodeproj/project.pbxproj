@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D91950CE167A96B200A2F608 /* GraphingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91950CD167A96B200A2F608 /* GraphingViewController.m */; };
+		D91950E0167B6CCA00A2F608 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = D91950DF167B6CCA00A2F608 /* GraphView.m */; };
 		D9C8348F16406A4C00DC3611 /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C8348E16406A4C00DC3611 /* CalculatorBrain.m */; };
 		D9D1916E167A581100B18DEF /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D1916D167A581100B18DEF /* AxesDrawer.m */; };
 		D9D72F041640452B000BB9BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D72F031640452B000BB9BE /* UIKit.framework */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		D91950CC167A96B200A2F608 /* GraphingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphingViewController.h; sourceTree = "<group>"; };
 		D91950CD167A96B200A2F608 /* GraphingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphingViewController.m; sourceTree = "<group>"; };
+		D91950DE167B6CCA00A2F608 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		D91950DF167B6CCA00A2F608 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		D9C8348D16406A4C00DC3611 /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		D9C8348E16406A4C00DC3611 /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
 		D9D1916C167A581100B18DEF /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				D9D72F0A1640452B000BB9BE /* Supporting Files */,
 				D91950CC167A96B200A2F608 /* GraphingViewController.h */,
 				D91950CD167A96B200A2F608 /* GraphingViewController.m */,
+				D91950DE167B6CCA00A2F608 /* GraphView.h */,
+				D91950DF167B6CCA00A2F608 /* GraphView.m */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				D9C8348F16406A4C00DC3611 /* CalculatorBrain.m in Sources */,
 				D9D1916E167A581100B18DEF /* AxesDrawer.m in Sources */,
 				D91950CE167A96B200A2F608 /* GraphingViewController.m in Sources */,
+				D91950E0167B6CCA00A2F608 /* GraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
