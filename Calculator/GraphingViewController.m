@@ -8,8 +8,9 @@
 
 #import "GraphingViewController.h"
 #import "GraphView.h"
+#import "CalculatorBrain.h"
 
-@interface GraphingViewController()
+@interface GraphingViewController() <GraphViewDataSource>
 @property (weak, nonatomic) IBOutlet GraphView *graphView;
 
 @end
@@ -18,18 +19,50 @@
 
 
 @synthesize graphView = _graphView;
-@synthesize programStack = _programStack;
+@synthesize program = _program;
 
-- (void) setProgramStack:(NSMutableArray*)stack {
-    if (_programStack == nil) {
-        _programStack = [[NSMutableArray alloc] init];
-    }
-    if (stack != _programStack) {
-        [_programStack removeAllObjects];
-        _programStack = [stack mutableCopy];
+- (void) refreshGraphView {
+    if (!self.program) return;
+    
+    if (!self.graphView) return;
+    
+    NSString *description = [CalculatorBrain descriptionOfProgram:self.program];
+    
+    CGFloat scale = [[NSUserDefaults standardUserDefaults] floatForKey:[@"scale." stringByAppendingString:description]];
+    
+    CGFloat xOrigin = [[NSUserDefaults standardUserDefaults] floatForKey:[@"x." stringByAppendingString:description]];
+    
+    CGFloat yOrigin = [[NSUserDefaults standardUserDefaults] floatForKey:[@"y." stringByAppendingString:description]];
+    
+    if (scale) self.graphView.scale = scale;
+    
+    if (xOrigin && yOrigin) {
+        CGPoint origin;
+        
+        origin.x = xOrigin;
+        origin.y = yOrigin;
+        
+        self.graphView.origin = origin;
     }
     
     [self.graphView setNeedsDisplay];
+}
+
+- (void) setProgram:(id)program {
+    
+    _program = program;
+    
+    self.title = [NSString stringWithFormat:@"y = %@", [CalculatorBrain descriptionOfProgram:program]];
+                      
+    [self refreshGraphView];
+}
+
+- (void) setGraphView:(GraphView *)graphView {
+    _graphView = graphView;
+    
+    self.graphView.dataSource = self;
+    
+    [self refreshGraphView];
 }
 
 /*
@@ -51,4 +84,38 @@
 {
     return YES; // support all orientations
 }
+
+- (void) persistScale:(CGFloat)scale forGraphView:(GraphView*)sender {
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:scale forKey:[@"scale." stringByAppendingString:[CalculatorBrain descriptionOfProgram:self.program]]];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (CGFloat)YValueForXValue:(CGFloat)x inGraphView:(GraphView*)sender {
+    
+    NSNumber* xValue = [NSNumber numberWithFloat:x];
+    
+    double y = [CalculatorBrain runProgram:self.program usingVariableValues:[NSDictionary dictionaryWithObject:xValue forKey:@"x"]];
+    
+    NSString *log = [NSString stringWithFormat:@"(%g,", x];
+    
+    log = [log stringByAppendingFormat:@"%g)", y];
+    
+    NSLog(@"%@", log);
+    
+    return y;
+}
+
+- (void)persistAxisOrigin:(CGFloat)x andY:(CGFloat)y forGraphView:(GraphView*)sender {
+    
+    NSString *description = [CalculatorBrain descriptionOfProgram:self.program];
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:x forKey:[@"x." stringByAppendingString:description]];
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:y forKey:[@"y." stringByAppendingString:description]];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 @end

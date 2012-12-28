@@ -92,8 +92,7 @@
 }
 
 + (NSString *)descriptionOfTopOfStack:(NSMutableArray *) stack {
-    NSLog(@"descriptionOfTopOfStack Enter");
-    NSLog(@"stack: %@", stack);
+
     id topOfStack = [stack lastObject];
     if (topOfStack) [stack removeLastObject];
     
@@ -102,7 +101,6 @@
     if (topOfStack) {
         if ([topOfStack isKindOfClass:[NSNumber class]]) {
             NSNumber* operand = topOfStack;
-            NSLog(@"top of stack: %g", operand);
             result = [operand stringValue];
         } else if ([topOfStack isKindOfClass:[NSString class]]) {
             NSString* item = topOfStack;
@@ -128,8 +126,6 @@
             }
         }
     }
-    
-    NSLog(@"Return %@", result);
     
     return result;
 }

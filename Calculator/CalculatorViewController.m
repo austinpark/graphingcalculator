@@ -161,7 +161,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [segue.destinationViewController setProgramStack:[self.brain program]];
+    [segue.destinationViewController setProgram:[self.brain program]];
 }
 
 - (void)setAndShowGraph
