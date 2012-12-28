@@ -18,11 +18,12 @@
 #define DEFAULT_SCALE 100.0
 
 - (CGPoint)origin {
-    CGPoint midPoint;
-    midPoint.x = self.bounds.origin.x + self.bounds.size.width /2;
-    midPoint.y = self.bounds.origin.y + self.bounds.size.height/2;
     
-    return midPoint;
+    if (!_origin.x && !_origin.y) {
+        _origin.x = self.bounds.origin.x + self.bounds.size.width /2;
+        _origin.y = self.bounds.origin.y + self.bounds.size.height /2;
+    }
+    return _origin;
 }
 
 - (void) setOrigin:(CGPoint)origin {
@@ -142,6 +143,36 @@
     
     CGContextStrokePath(context);
 
+}
+
+- (void) pinch:(UIPinchGestureRecognizer*)gesture {
+    if ((gesture.state == UIGestureRecognizerStateChanged) ||
+        (gesture.state == UIGestureRecognizerStateEnded)) {
+        
+        self.scale *= gesture.scale;
+        gesture.scale = 1;
+    }
+}
+
+- (void) pan:(UIPanGestureRecognizer*)gesture {
+    if ((gesture.state == UIGestureRecognizerStateChanged) ||
+        (gesture.state == UIGestureRecognizerStateEnded)) {
+        
+        CGPoint translation = [gesture translationInView:self];
+        
+        CGPoint newOrigin;
+        newOrigin.x = self.origin.x + translation.x;
+        newOrigin.y = self.origin.y + translation.y;
+        
+        self.origin = newOrigin;
+        [gesture setTranslation:CGPointZero inView:self];
+    }
+}
+
+- (void) tripleTap:(UITapGestureRecognizer*)gesture {
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        self.origin = [gesture locationOfTouch:0 inView:self];
+    }
 }
 
 /*

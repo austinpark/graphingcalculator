@@ -62,6 +62,16 @@
     
     self.graphView.dataSource = self;
     
+    [self.graphView addGestureRecognizer:[[UIPinchGestureRecognizer alloc]initWithTarget:self.graphView action:@selector(pinch:)]];
+    
+    [self.graphView addGestureRecognizer:[[UIPanGestureRecognizer alloc]initWithTarget:self.graphView action:@selector(pan:)]];
+    
+    UITapGestureRecognizer* tabRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self.graphView action:@selector(tripleTap:)];
+    
+    tabRecognizer.numberOfTapsRequired = 3;
+    
+    [self.graphView addGestureRecognizer:tabRecognizer];
+    
     [self refreshGraphView];
 }
 
@@ -97,12 +107,6 @@
     NSNumber* xValue = [NSNumber numberWithFloat:x];
     
     double y = [CalculatorBrain runProgram:self.program usingVariableValues:[NSDictionary dictionaryWithObject:xValue forKey:@"x"]];
-    
-    NSString *log = [NSString stringWithFormat:@"(%g,", x];
-    
-    log = [log stringByAppendingFormat:@"%g)", y];
-    
-    NSLog(@"%@", log);
     
     return y;
 }

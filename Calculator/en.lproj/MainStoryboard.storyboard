@@ -430,6 +430,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="226-9h-7ys" appends="YES" id="GvW-x6-pI8"/>
+                            <outletCollection property="gestureRecognizers" destination="t7u-h3-jVg" appends="YES" id="J7J-ak-I43"/>
+                            <outletCollection property="gestureRecognizers" destination="CTd-dk-PTh" appends="YES" id="yRE-yT-yg1"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="GxH-iZ-4cl"/>
                     <connections>
@@ -437,6 +443,9 @@
                         <outlet property="view" destination="huv-a2-1BH" id="4dE-mA-PSS"/>
                     </connections>
                 </viewController>
+                <pinchGestureRecognizer id="226-9h-7ys"/>
+                <tapGestureRecognizer id="t7u-h3-jVg"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="CTd-dk-PTh"/>
             </objects>
             <point key="canvasLocation" x="1278" y="94"/>
         </scene>
@@ -469,6 +478,9 @@
         </class>
         <class className="GraphView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+            </relationships>
         </class>
         <class className="GraphingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphingViewController.h"/>
