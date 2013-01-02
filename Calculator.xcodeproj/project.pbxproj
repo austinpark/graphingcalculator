@@ -28,6 +28,7 @@
 		D91950DE167B6CCA00A2F608 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		D91950DF167B6CCA00A2F608 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		D94F316A168E38440079EC10 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		D9891EF416949EF70026DDB2 /* SplitViewBarButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewBarButtonProtocol.h; sourceTree = "<group>"; };
 		D9C8348D16406A4C00DC3611 /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		D9C8348E16406A4C00DC3611 /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
 		D9D1916C167A581100B18DEF /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 				D91950DE167B6CCA00A2F608 /* GraphView.h */,
 				D91950DF167B6CCA00A2F608 /* GraphView.m */,
 				D94F316A168E38440079EC10 /* iPad.storyboard */,
+				D9891EF416949EF70026DDB2 /* SplitViewBarButtonProtocol.h */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";

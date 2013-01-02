@@ -9,6 +9,7 @@
 #import "CalculatorViewController.h"
 #import "CalculatorBrain.h"
 #import "GraphingViewController.h"
+#import "SplitViewBarButtonProtocol.h"
 
 @interface CalculatorViewController()
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
@@ -25,6 +26,16 @@
 @synthesize isMinus = _isMinus;
 
 #define PI 3.141592
+
+- (id <SplitViewBarButtonProtocol>)splitViewBarButtonItem {
+    id detailVC = [self.splitViewController.viewControllers lastObject];
+    
+    if (![detailVC conformsToProtocol:@protocol(SplitViewBarButtonProtocol)]) {
+        detailVC = nil;
+    }
+    
+    return detailVC;
+}
 
 - (CalculatorBrain *)brain {
     if (!_brain) _brain = [[CalculatorBrain alloc] init];
@@ -159,6 +170,10 @@
     return variableValues;
 }
 
+- (GraphingViewController *)graphViewController {
+    return [self.splitViewController.viewControllers lastObject];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [segue.destinationViewController setProgram:[self.brain program]];
@@ -170,7 +185,16 @@
 }
 
 - (IBAction)displayGraph {
-    [self setAndShowGraph];
+    
+    if ([self graphViewController]) {
+        [[self graphViewController] setProgram:self.brain.program];
+    } else {
+        [self setAndShowGraph];
+    }
+}
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.splitViewController.delegate = self;
 }
 
 - (void)viewDidUnload {
@@ -178,4 +202,27 @@
     [self setVariableDisplay:nil];
     [super viewDidUnload];
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
+
+- (BOOL) splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+    return [self splitViewBarButtonItem] ? UIInterfaceOrientationIsPortrait(orientation) : NO;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc {
+
+    barButtonItem.title = [CalculatorBrain descriptionOfProgram:[self.brain program]];
+    
+    [self splitViewBarButtonItem].splitViewBarButtonItem = barButtonItem;
+    
+}
+
+- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+    [self splitViewBarButtonItem].splitViewBarButtonItem = nil;
+}
+
+
+
 @end

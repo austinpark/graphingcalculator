@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SplitViewBarButtonProtocol.h"
 
-@interface GraphingViewController : UIViewController
+@interface GraphingViewController : UIViewController <SplitViewBarButtonProtocol>
 
 @property (nonatomic, strong)  id program;
 

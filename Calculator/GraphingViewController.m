@@ -12,7 +12,7 @@
 
 @interface GraphingViewController() <GraphViewDataSource>
 @property (weak, nonatomic) IBOutlet GraphView *graphView;
-
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @end
 
 @implementation GraphingViewController
@@ -20,6 +20,30 @@
 
 @synthesize graphView = _graphView;
 @synthesize program = _program;
+@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
+@synthesize toolbar = _toolbar;
+
+- (void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem 
+{
+    if (_splitViewBarButtonItem != splitViewBarButtonItem) {
+        NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+        if (_splitViewBarButtonItem) [toolbarItems removeObject:_splitViewBarButtonItem];
+        if (splitViewBarButtonItem) [toolbarItems insertObject:splitViewBarButtonItem atIndex:0];
+        self.toolbar.items = toolbarItems;
+        _splitViewBarButtonItem = splitViewBarButtonItem;
+    }
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+//    self.splitViewController.presentsWithGesture = NO;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES; // support all orientations
+}
+
 
 - (void) refreshGraphView {
     if (!self.program) return;
@@ -88,11 +112,6 @@
     [self setGraphView:nil];
     [self setGraphView:nil];
     [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return YES; // support all orientations
 }
 
 - (void) persistScale:(CGFloat)scale forGraphView:(GraphView*)sender {

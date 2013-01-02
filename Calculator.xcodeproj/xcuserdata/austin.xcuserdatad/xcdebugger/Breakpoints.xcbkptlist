@@ -8,20 +8,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Calculator/CalculatorViewController.m"
-         timestampString = "377191703.640462"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "110"
-         endingLineNumber = "110"
-         landmarkName = "-operationPressed:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "Calculator/CalculatorBrain.m"
          timestampString = "378412137.536836"
          startingColumnNumber = "9223372036854775807"
@@ -86,20 +72,6 @@
          endingLineNumber = "109"
          landmarkName = "-operationPressed:"
          landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Calculator/GraphingViewController.m"
-         timestampString = "378411335.843866"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
-         landmarkName = "@implementation GraphingViewController"
-         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
